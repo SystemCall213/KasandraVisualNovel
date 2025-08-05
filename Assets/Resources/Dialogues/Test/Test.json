@@ -1,0 +1,78 @@
+{
+  "lines": [
+    {
+      "speaker": "Аліса",
+      "text": "Гей, ти нарешті прокинувся. Пам’ятаєш, де ми?",
+      "choices": [
+        {
+          "text": "Ні, не дуже.",
+          "nextLineId": "forgot_memory"
+        },
+        {
+          "text": "Звісно, пам’ятаю.",
+          "nextLineId": "remembered",
+          "setFlag": "remembered_past"
+        }
+      ]
+    },
+    {
+      "id": "forgot_memory",
+      "speaker": "Аліса",
+      "text": "Це нічого. Ми розберемось разом.",
+      "nextLineId": "meeting_bob"
+    },
+    {
+      "id": "remembered",
+      "speaker": "Аліса",
+      "text": "Чудово. Так буде легше.",
+      "nextLineId": "meeting_bob"
+    },
+    {
+      "id": "meeting_bob",
+      "speaker": "Боб",
+      "text": "Ласкаво просимо до села Віндмер. Що привело тебе сюди?",
+      "choices": [
+        {
+          "text": "Просто проходжу повз.",
+          "nextLineId": "passing_through"
+        },
+        {
+          "text": "Я шукаю когось.",
+          "nextLineId": "looking_for_someone"
+        }
+      ]
+    },
+    {
+      "id": "passing_through",
+      "speaker": "Боб",
+      "text": "Будь обережним. Кажуть, поблизу з’явились бандити.",
+      "nextLineId": "remembered_past"
+    },
+    {
+      "id": "looking_for_someone",
+      "speaker": "Боб",
+      "text": "Розумію. Можливо, господар заїзду зможе допомогти.",
+      "nextLineId": "remembered_past"
+    },
+    {
+      "id": "remembered_past",
+      "speaker": "Боб",
+      "text": "Ти мені когось нагадуєш...",
+      "nextLineId": "end",
+      "condition": {
+        "flag": "remembered_past",
+        "value": true
+      }
+    },
+    {
+      "speaker": "Боб",
+      "text": "Ти мені когось нагадуєш...2",
+      "nextLineId": "end"
+    },
+    {
+      "id": "end",
+      "speaker": "Боб",
+      "text": "Останнє повідомлення"
+    }
+  ]
+}

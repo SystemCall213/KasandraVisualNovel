@@ -1,0 +1,6 @@
+{
+  "flags": [
+    { "key": "remembered_past", "value": false },
+    { "key": "met_bob", "value": false }
+  ]
+}
