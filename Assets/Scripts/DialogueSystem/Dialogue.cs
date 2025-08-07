@@ -12,6 +12,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private string dialogueFileName;
     [SerializeField] private float textSpeed;
     [SerializeField] private ChoiceContainer choiceContainer;
+    [SerializeField] private CharacterDisplayer characterDisplayer;
 
     private List<DialogueLine> lines;
     private Dictionary<string, int> lineMap;
@@ -76,20 +77,27 @@ public class Dialogue : MonoBehaviour
 
     IEnumerator TypeLine()
     {
-        textComponent.text = string.Empty;
-        speakerComponent.text = lines[index].speaker;
+        DialogueLine currentLine = lines[index];
 
-        foreach (char c in lines[index].text.ToCharArray())
+        textComponent.text = string.Empty;
+        speakerComponent.text = currentLine.speaker;
+
+        if (currentLine.spriteName != null)
+        {
+            characterDisplayer.SetCharacterSprite(currentLine.spriteName, currentLine.spriteToChange, currentLine.showCharacter);
+        }
+
+        foreach (char c in currentLine.text.ToCharArray())
         {
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
 
         // Check for choices after typing finishes
-        if (lines[index].choices != null && lines[index].choices.Count > 0)
+        if (currentLine.choices != null && currentLine.choices.Count > 0)
         {
             waitingForChoice = true;
-            choiceContainer.ShowChoices(lines[index].choices, this);
+            choiceContainer.ShowChoices(currentLine.choices, this);
         }
     }
 

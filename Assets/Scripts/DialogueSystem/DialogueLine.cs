@@ -9,4 +9,8 @@ public class DialogueLine
     public string nextLineId;
     public List<Choice> choices;
     public Condition condition; // optional
+
+    public string spriteName;
+    public string spriteToChange;
+    public bool showCharacter = true;
 }

@@ -3,6 +3,7 @@
     {
       "speaker": "Аліса",
       "text": "Гей, ти нарешті прокинувся. Пам’ятаєш, де ми?",
+      "spriteName": "Kasandra",
       "choices": [
         {
           "text": "Ні, не дуже.",
@@ -19,12 +20,16 @@
       "id": "forgot_memory",
       "speaker": "Аліса",
       "text": "Це нічого. Ми розберемось разом.",
+      "spriteName": "Kasandra_rotated",
+      "spriteToChange": "Kasandra",
       "nextLineId": "meeting_bob"
     },
     {
       "id": "remembered",
       "speaker": "Аліса",
       "text": "Чудово. Так буде легше.",
+      "spriteName": "Kasandra_rotated",
+      "spriteToChange": "Kasandra",
       "nextLineId": "meeting_bob"
     },
     {
@@ -58,6 +63,8 @@
       "id": "remembered_past",
       "speaker": "Боб",
       "text": "Ти мені когось нагадуєш...",
+      "spriteName": "Kasandra_rotated",
+      "showCharacter": false,
       "nextLineId": "end",
       "condition": {
         "flag": "remembered_past",
@@ -67,6 +74,8 @@
     {
       "speaker": "Боб",
       "text": "Ти мені когось нагадуєш...2",
+      "spriteName": "Kasandra_rotated",
+      "showCharacter": false,
       "nextLineId": "end"
     },
     {
