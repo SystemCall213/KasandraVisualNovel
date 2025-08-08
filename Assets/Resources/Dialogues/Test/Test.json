@@ -14,7 +14,9 @@
           "nextLineId": "remembered",
           "setFlag": "remembered_past"
         }
-      ]
+      ],
+      "backgroundName": "testBackground",
+      "backgroundMusic": "test1"
     },
     {
       "id": "forgot_memory",
@@ -45,7 +47,9 @@
           "text": "Я шукаю когось.",
           "nextLineId": "looking_for_someone"
         }
-      ]
+      ],
+      "backgroundName": "testBackground2",
+      "backgroundMusic": "test2"
     },
     {
       "id": "passing_through",
@@ -68,7 +72,7 @@
       "nextLineId": "end",
       "condition": {
         "flag": "remembered_past",
-        "value": true
+        "value": false
       }
     },
     {

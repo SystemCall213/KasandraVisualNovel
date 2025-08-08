@@ -1,0 +1,15 @@
+{
+  "lines": [
+    {
+      "id": "forgot_memory",
+      "speaker": "Аліса",
+      "text": "Це нічого. Ми розберемось разом.",
+      "spriteName": "Kasandra_rotated",
+      "spriteToChange": "Kasandra",
+      "nextLineId": "meeting_bob",
+      "backgroundName": "testBackground",
+      "backgroundMusic": "test1"
+    },
+    {}
+  ]
+}

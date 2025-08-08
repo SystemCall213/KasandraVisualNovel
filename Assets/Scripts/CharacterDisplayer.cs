@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 
 public class CharacterDisplayer : MonoBehaviour
 {
     [SerializeField] private Character[] characters;
 
+    // Shows sprite, changes existing sprite if spriteToChange passed, show means we show the sprite or hide it if false
     public void SetCharacterSprite(string spriteName, string spriteToChange, bool show)
     {
         Sprite sprite = Resources.Load<Sprite>($"Sprites/{spriteName}");
@@ -37,7 +36,7 @@ public class CharacterDisplayer : MonoBehaviour
                         ch.setSpriteName(spriteName);
                         break;
                     }
-                }   
+                }
             }
         }
         else
@@ -46,10 +45,16 @@ public class CharacterDisplayer : MonoBehaviour
             {
                 if (ch.getSpriteName() == spriteName)
                 {
+                    ch.setSpriteName(string.Empty);
                     ch.Disable();
                     break;
                 }
             }
         }
+    }
+
+    public Character[] GetCharacters()
+    {
+        return characters;
     }
 }

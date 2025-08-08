@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Xml.Serialization;
 using System;
+using System.IO;
 
 public class Dialogue : MonoBehaviour
 {
@@ -13,18 +14,54 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private float textSpeed;
     [SerializeField] private ChoiceContainer choiceContainer;
     [SerializeField] private CharacterDisplayer characterDisplayer;
+    [SerializeField] private BackgroundDisplayer backgroundDisplayer;
+    [SerializeField] private MusicManager musicManager;
+
+    // Setting line to adjust speed
+    [SerializeField] private SettingsManager settingsManager;
+
+    // lets me check if I can click (because we should be able to read if we clicked esc)
+    [SerializeField] private GameObject ecsMenuWrapper;
 
     private List<DialogueLine> lines;
     private Dictionary<string, int> lineMap;
     private int index;
     private bool waitingForChoice = false;
 
-    void Start()
+    private void Awake()
     {
         textComponent.text = string.Empty;
         speakerComponent.text = string.Empty;
-        LoadDialogueFromFile(dialogueFileName);
-        StartDialogue();
+        textSpeed = GameSettings.TypingSpeed;
+        settingsManager.OnTypingSpeedChanged += AdjustSpeed;
+
+        if (TempLoadData.Data != null)
+        {
+            LoadDialogueFromFile(dialogueFileName);
+            index = TempLoadData.Data.lineIndex;
+            backgroundDisplayer.setBackground(TempLoadData.Data.backgroundName);
+            musicManager.setMusic(TempLoadData.Data.musicName);
+
+            List<string> characters = TempLoadData.Data.characters;
+
+            foreach (string ch in characters)
+            {
+                characterDisplayer.SetCharacterSprite(ch, null, true);
+            }
+
+            TempLoadData.Data = null; // Clear after use
+            StartCoroutine(TypeLine());
+        }
+        else
+        {
+            LoadDialogueFromFile(dialogueFileName);
+            StartDialogue();
+        }
+    }
+
+    void AdjustSpeed()
+    {
+        textSpeed = GameSettings.TypingSpeed;
     }
 
     void LoadDialogueFromFile(string fileName)
@@ -48,7 +85,7 @@ public class Dialogue : MonoBehaviour
     {
         if (waitingForChoice) return;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !ecsMenuWrapper.activeInHierarchy)
         {
             if (textComponent.text == lines[index].text)
             {
@@ -80,11 +117,28 @@ public class Dialogue : MonoBehaviour
         DialogueLine currentLine = lines[index];
 
         textComponent.text = string.Empty;
-        speakerComponent.text = currentLine.speaker;
+        if (currentLine.speaker != null)
+        {
+            speakerComponent.text = currentLine.speaker;
+        }
+        else
+        {
+            speakerComponent.text = string.Empty;
+        }
 
         if (currentLine.spriteName != null)
         {
             characterDisplayer.SetCharacterSprite(currentLine.spriteName, currentLine.spriteToChange, currentLine.showCharacter);
+        }
+
+        if (currentLine.backgroundName != null)
+        {
+            backgroundDisplayer.setBackground(currentLine.backgroundName);
+        }
+
+        if (currentLine.backgroundMusic != null)
+        {
+            musicManager.setMusic(currentLine.backgroundMusic);
         }
 
         foreach (char c in currentLine.text.ToCharArray())
@@ -154,14 +208,16 @@ public class Dialogue : MonoBehaviour
     void AdvanceToVisibleLine()
     {
         while (index < lines.Count && !IsLineVisible(lines[index]))
-        {   
+        {
             index++;
         }
 
+        /*
         if (index >= lines.Count)
         {
             gameObject.SetActive(false);
         }
+        */
     }
 
     public void OnChoiceSelected(string nextLineId)
@@ -176,6 +232,35 @@ public class Dialogue : MonoBehaviour
         {
             Debug.LogWarning("Next line ID not found: " + nextLineId);
         }
+    }
+
+    void OnApplicationQuit()
+    {
+        SaveGame();
+    }
+
+    public void SaveGame()
+    {
+        string backName = backgroundDisplayer.getBackgroundName();
+        string musicClipName = musicManager.getMusicClipName();
+        List<string> characters = new List<string>();
+
+        foreach (Character ch in characterDisplayer.GetCharacters())
+        {
+            if (ch.getSpriteName() != string.Empty)
+                characters.Add(ch.getSpriteName());
+        }
+
+        SaveData save = new SaveData
+        {
+            lineIndex = index,
+            backgroundName = backName,
+            musicName = musicClipName,
+            characters = characters
+        };
+
+        string json = JsonUtility.ToJson(save);
+        File.WriteAllText(Path.Combine(Application.persistentDataPath, "save.json"), json);
     }
 
 }
