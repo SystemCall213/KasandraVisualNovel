@@ -141,10 +141,13 @@ public class Dialogue : MonoBehaviour
             musicManager.setMusic(currentLine.backgroundMusic);
         }
 
-        foreach (char c in currentLine.text.ToCharArray())
+        if (currentLine.text != null)
         {
-            textComponent.text += c;
-            yield return new WaitForSeconds(textSpeed);
+            foreach (char c in currentLine.text.ToCharArray())
+            {
+                textComponent.text += c;
+                yield return new WaitForSeconds(textSpeed);
+            }
         }
 
         // Check for choices after typing finishes

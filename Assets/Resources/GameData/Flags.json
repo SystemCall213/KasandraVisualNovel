@@ -1,6 +1,7 @@
 {
   "flags": [
-    { "key": "remembered_past", "value": false },
-    { "key": "met_bob", "value": false }
+    { "key": "carpenters_seen", "value": false },
+    { "key": "wine_seen", "value": false },
+    { "key": "flowershop_seen", "value": false }
   ]
 }
