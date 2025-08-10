@@ -14,10 +14,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private SettingsManager settingsManager;
 
     private string savePath;
+    private string flagsPath;
 
     private void Awake()
     {
         savePath = Path.Combine(Application.persistentDataPath, "save.json");
+        flagsPath = Path.Combine(Application.persistentDataPath, "Flags.json");
 
         // Make sure buttons trigger the correct method
         newGame.onClick.AddListener(newGameClick);
@@ -34,6 +36,9 @@ public class MainMenu : MonoBehaviour
     {
         if (File.Exists(savePath))
             File.Delete(savePath);
+
+        if (File.Exists(flagsPath))
+            File.Delete(flagsPath);
 
         SceneManager.LoadScene("SampleScene"); // change later
     }

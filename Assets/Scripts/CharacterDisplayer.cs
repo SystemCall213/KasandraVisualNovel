@@ -57,4 +57,26 @@ public class CharacterDisplayer : MonoBehaviour
     {
         return characters;
     }
+
+    public bool CheckExists(string spriteName)
+    {
+        foreach (Character ch in characters)
+        {
+            if (ch.getSpriteName() == spriteName)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void clearCharacters()
+    {
+        foreach (Character ch in characters)
+        {
+            ch.setSpriteName(string.Empty);
+            ch.Disable();
+        }
+    }
 }

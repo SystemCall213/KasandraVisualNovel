@@ -46,7 +46,10 @@ public class Dialogue : MonoBehaviour
 
             foreach (string ch in characters)
             {
-                characterDisplayer.SetCharacterSprite(ch, null, true);
+                if (!characterDisplayer.CheckExists(ch))
+                {
+                    characterDisplayer.SetCharacterSprite(ch, null, true);
+                }
             }
 
             TempLoadData.Data = null; // Clear after use
@@ -128,11 +131,22 @@ public class Dialogue : MonoBehaviour
 
         if (currentLine.spriteName != null)
         {
-            characterDisplayer.SetCharacterSprite(currentLine.spriteName, currentLine.spriteToChange, currentLine.showCharacter);
+            if (!characterDisplayer.CheckExists(currentLine.spriteName))
+            {
+                characterDisplayer.SetCharacterSprite(currentLine.spriteName, currentLine.spriteToChange, currentLine.showCharacter);
+            }
+            else
+            {
+                if (currentLine.showCharacter == false)
+                {
+                    characterDisplayer.SetCharacterSprite(currentLine.spriteName, currentLine.spriteToChange, currentLine.showCharacter);
+                }
+            }
         }
 
         if (currentLine.backgroundName != null)
         {
+            characterDisplayer.clearCharacters();
             backgroundDisplayer.setBackground(currentLine.backgroundName);
         }
 
