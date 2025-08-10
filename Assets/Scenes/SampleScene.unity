@@ -313,6 +313,10 @@ PrefabInstance:
       propertyPath: dialogueFileName
       value: Dialogues/Game
       objectReference: {fileID: 0}
+    - target: {fileID: 3316054090610874364, guid: 3a819672f6003d14dbcd8d4022342691, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3690196060109651220, guid: 3a819672f6003d14dbcd8d4022342691, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

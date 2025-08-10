@@ -232,12 +232,6 @@
     },
     { 
       "text": "Не бажаючи слухати те, як натовп поливає брудом батька, ти покидаєш натовп.", 
-      "spriteName": "Carpenter1", 
-      "showCharacter": false 
-    },
-    { 
-      "spriteName": "Carpenter2", 
-      "showCharacter": false,
       "nextLineId": "wine_flower_choice"
     },
 
@@ -350,12 +344,6 @@
     },
     { 
       "text": "Не бажаючи слухати те, як натовп поливає брудом батька, ти покидаєш натовп.", 
-      "spriteName": "Carpenter1", 
-      "showCharacter": false 
-    },
-    { 
-      "spriteName": "Carpenter2", 
-      "showCharacter": false,
       "nextLineId": "flower_choice",
       "condition": {
         "flag": "wine_seen",
@@ -363,8 +351,7 @@
       }
     },
     { 
-      "spriteName": "Carpenter2", 
-      "showCharacter": false,
+      "text": "Не бажаючи слухати те, як натовп поливає брудом батька, ти покидаєш натовп.", 
       "nextLineId": "wine_choice",
       "condition": {
         "flag": "flower_choice",
@@ -480,14 +467,10 @@
       "text": "Еге ж, явно не про нашу безпеку…" 
     },
     { 
-      "text": "Не бажаючи слухати те, як натовп поливає брудом батька,", 
-      "spriteName": "Carpenter1", 
-      "showCharacter": false 
+      "text": "Не бажаючи слухати те, як натовп поливає брудом батька,"
     },
     { 
       "text": "ти покидаєш натовп.",
-      "spriteName": "Carpenter2",
-      "showCharacter": false,
       "nextLineId": "after_gossips"
     },
 
@@ -588,12 +571,6 @@
     },
     {
       "text": "Старенький слабо, але тепло усміхнувся. Натовп потрохи розчинявся, розносячи новини по ринку.",
-      "spriteName": "OldBrewer",
-      "showCharacter": false
-    },
-    {
-      "spriteName": "OldBrewer's_Doughter",
-      "showCharacter": false,
       "nextLineId": "carpenter_flower_choice"
     },
 
@@ -693,13 +670,9 @@
       "text": "Не засмучуйтеся, з палацу ще точно прийдуть!"
     },
     {
-      "text": "Старенький слабо, але тепло усміхнувся. Натовп потрохи розчинявся, розносячи новини по ринку.",
-      "spriteName": "OldBrewer",
-      "showCharacter": false
+      "text": "Старенький слабо, але тепло усміхнувся. Натовп потрохи розчинявся, розносячи новини по ринку."
     },
     {
-      "spriteName": "OldBrewer's_Doughter",
-      "showCharacter": false,
       "nextLineId": "flower_choice",
       "condition": {
         "flag": "carpenters_seen",
@@ -707,8 +680,6 @@
       }
     },
     {
-      "spriteName": "OldBrewer's_Doughter",
-      "showCharacter": false,
       "nextLineId": "carpenter_choice",
       "condition": {
         "flag": "flower_seen",
@@ -812,13 +783,9 @@
       "text": "Не засмучуйтеся, з палацу ще точно прийдуть!"
     },
     {
-      "text": "Старенький слабо, але тепло усміхнувся. Натовп потрохи розчинявся, розносячи новини по ринку.",
-      "spriteName": "OldBrewer",
-      "showCharacter": false
+      "text": "Старенький слабо, але тепло усміхнувся. Натовп потрохи розчинявся, розносячи новини по ринку."
     },
     {
-      "spriteName": "OldBrewer's_Doughter",
-      "showCharacter": false,
       "nextLineId": "after_gossips"
     },
 
@@ -932,13 +899,7 @@
       "text": "А тебе на весілля не запрошу, якщо будеш така груба!"
     },
     {
-      "text": "Дівчата тихо захихотіли.",
-      "spriteName": "Girl1",
-      "showCharacter": false
-    },
-    {
-      "spriteName": "Girl2",
-      "showCharacter": false
+      "text": "Дівчата тихо захихотіли."
     },
     {
       "text": "А ти не в силах і зробити крок."
@@ -1065,13 +1026,7 @@
       "text": "А тебе на весілля не запрошу, якщо будеш така груба!"
     },
     {
-      "text": "Дівчата тихо захихотіли.",
-      "spriteName": "Girl1",
-      "showCharacter": false
-    },
-    {
-      "spriteName": "Girl2",
-      "showCharacter": false
+      "text": "Дівчата тихо захихотіли."
     },
     {
       "text": "А ти не в силах і зробити крок."
@@ -1210,13 +1165,7 @@
       "text": "А тебе на весілля не запрошу, якщо будеш така груба!"
     },
     {
-      "text": "Дівчата тихо захихотіли.",
-      "spriteName": "Girl1",
-      "showCharacter": false
-    },
-    {
-      "spriteName": "Girl2",
-      "showCharacter": false
+      "text": "Дівчата тихо захихотіли."
     },
     {
       "text": "А ти не в силах і зробити крок."
