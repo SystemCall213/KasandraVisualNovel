@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Xml.Serialization;
-using System;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class Dialogue : MonoBehaviour
 {
@@ -22,6 +21,8 @@ public class Dialogue : MonoBehaviour
 
     // lets me check if I can click (because we should be able to read if we clicked esc)
     [SerializeField] private GameObject ecsMenuWrapper;
+
+    [SerializeField] private TextAsset jsonFile;
 
     private List<DialogueLine> lines;
     private Dictionary<string, int> lineMap;
@@ -69,8 +70,12 @@ public class Dialogue : MonoBehaviour
 
     void LoadDialogueFromFile(string fileName)
     {
-        TextAsset json = Resources.Load<TextAsset>(fileName);
-        DialogueData data = JsonUtility.FromJson<DialogueData>(json.text);
+        DialogueData data = new DialogueData();
+        if (jsonFile != null)
+        {
+            string jsonText = jsonFile.text;
+            data = JsonUtility.FromJson<DialogueData>(jsonText);
+        }
         lines = data.lines;
 
         // Optional: build ID lookup map
@@ -182,6 +187,12 @@ public class Dialogue : MonoBehaviour
     void NextLine()
     {
         DialogueLine currentLine = lines[index];
+
+        if (currentLine.id != null && currentLine.id == "end")
+        {
+            SaveGame();
+            SceneManager.LoadScene("Credits");
+        }
 
         // Check if this line explicitly points to a next one
         if (!string.IsNullOrEmpty(currentLine.nextLineId))

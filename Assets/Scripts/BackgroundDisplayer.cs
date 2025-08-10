@@ -13,6 +13,8 @@ public class BackgroundDisplayer : MonoBehaviour
 
     public void setBackground(string backName)
     {
+        if (background == null) background = GetComponent<Image>();
+
         Sprite sprite = Resources.Load<Sprite>($"Backgrounds/{backName}");
 
         if (!sprite) return;

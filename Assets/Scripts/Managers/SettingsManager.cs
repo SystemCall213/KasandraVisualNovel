@@ -48,9 +48,7 @@ public class SettingsManager : MonoBehaviour
     public void CloseSettings()
     {
         settingsPanel.SetActive(false);
-        #if UNITY_EDITOR
-            PlayerPrefs.Save();
-        #endif
+        PlayerPrefs.Save();
     }
 
     public void SetVolume(float value)

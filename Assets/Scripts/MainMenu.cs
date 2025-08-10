@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button quit;
 
     [SerializeField] private SettingsManager settingsManager;
+    [SerializeField] private GameObject creditsMenu;
 
     private string savePath;
     private string flagsPath;
@@ -40,7 +41,7 @@ public class MainMenu : MonoBehaviour
         if (File.Exists(flagsPath))
             File.Delete(flagsPath);
 
-        SceneManager.LoadScene("SampleScene"); // change later
+        SceneManager.LoadScene("Game");
     }
 
     public void loadGameClick()
@@ -56,7 +57,7 @@ public class MainMenu : MonoBehaviour
         TempLoadData.Data = saveData;
 
         // Load Game scene
-        SceneManager.LoadScene("SampleScene"); // change later
+        SceneManager.LoadScene("Game");
     }
 
     public void settingsClick()
@@ -66,7 +67,7 @@ public class MainMenu : MonoBehaviour
 
     public void creditsClick()
     {
-        // TO DO
+        creditsMenu.SetActive(true);
     }
     
     public void quitClick()
