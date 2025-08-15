@@ -997,7 +997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 73377808}
-  clip: {fileID: 8300000, guid: 1c873730ae00d814fb2fe09f86029b3c, type: 3}
+  clip: {fileID: 8300000, guid: 07e8c46dbad3fb5478a7747f772289a6, type: 3}
   playOnLoad: 1
 --- !u!4 &734369568
 Transform:
@@ -1246,8 +1246,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1564,7 +1564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8ec8ce90bfe4c3d458e36af50bc69ce2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f79c9137705492f47b570a6aad20c23e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1666,8 +1666,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1829,7 +1829,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 50, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1715128498
 MonoBehaviour:
@@ -1878,8 +1878,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2312,9 +2312,17 @@ PrefabInstance:
       value: "\u041D\u0430\u043B\u0430\u0448\u0442\u0443\u0432\u0430\u043D\u043D\u044F"
       objectReference: {fileID: 0}
     - target: {fileID: 2079521102532830804, guid: faab31ebb91c72e459503c96de1f2c7a, type: 3}
+      propertyPath: m_fontSize
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079521102532830804, guid: faab31ebb91c72e459503c96de1f2c7a, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 4a9e91d8cb3cd854f87f5d4995d2ba86, type: 2}
+    - target: {fileID: 2079521102532830804, guid: faab31ebb91c72e459503c96de1f2c7a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 2079521102532830804, guid: faab31ebb91c72e459503c96de1f2c7a, type: 3}
       propertyPath: m_sharedMaterial
       value: 
@@ -2326,6 +2334,14 @@ PrefabInstance:
     - target: {fileID: 5180749891089826658, guid: faab31ebb91c72e459503c96de1f2c7a, type: 3}
       propertyPath: m_Name
       value: SettingsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393880936737905998, guid: faab31ebb91c72e459503c96de1f2c7a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393880936737905998, guid: faab31ebb91c72e459503c96de1f2c7a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8562242939783203333, guid: faab31ebb91c72e459503c96de1f2c7a, type: 3}
       propertyPath: m_Pivot.x
@@ -2525,9 +2541,17 @@ PrefabInstance:
       value: "\u0412\u0438\u0439\u0442\u0438 \u0437 \u0433\u0440\u0438"
       objectReference: {fileID: 0}
     - target: {fileID: 5968700834174195796, guid: 96c837948d6ce294c888c542cbf5f3b1, type: 3}
+      propertyPath: m_fontSize
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5968700834174195796, guid: 96c837948d6ce294c888c542cbf5f3b1, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 4a9e91d8cb3cd854f87f5d4995d2ba86, type: 2}
+    - target: {fileID: 5968700834174195796, guid: 96c837948d6ce294c888c542cbf5f3b1, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 5968700834174195796, guid: 96c837948d6ce294c888c542cbf5f3b1, type: 3}
       propertyPath: m_sharedMaterial
       value: 
@@ -2539,6 +2563,14 @@ PrefabInstance:
     - target: {fileID: 6808508398432138381, guid: 96c837948d6ce294c888c542cbf5f3b1, type: 3}
       propertyPath: m_Name
       value: QuitButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462532076962892030, guid: 96c837948d6ce294c888c542cbf5f3b1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462532076962892030, guid: 96c837948d6ce294c888c542cbf5f3b1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

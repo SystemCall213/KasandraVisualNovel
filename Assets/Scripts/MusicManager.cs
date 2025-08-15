@@ -14,6 +14,7 @@ public class MusicManager : MonoBehaviour
     private void Awake()
     {
         music.volume = PlayerPrefs.GetFloat("MasterVolume", 1f);
+        music.loop = true;
 
         if (playOnLoad)
         {
